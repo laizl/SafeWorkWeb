@@ -1,0 +1,44 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+body{
+    background: gainsboro;
+}
+.login-area{
+    width:400px;
+    height:400px;
+    background: gray;
+    overflow: hidden;
+    border-radius: 20px;
+    margin:10% auto;
+    z-index: 20;
+}
+p{
+    font-family: "楷体";
+    font-size: 20px;
+}
+.login-username>p{
+    margin:140px 0 0 80px;
+}
+.login-password{
+    margin:10px 0 0 80px;
+}
+.login-button{
+    margin:30px 0 0 45px;
+}
+.login-username>p>input{
+    width:150px;
+}
+.login-password > p >input{
+    width:150px;
+}
+input{
+    font-family: "楷体";
+    font-size: 20px;
+    border-radius: 5px;
+}
+.login-button>p>input{
+    margin:10px 0px 0px 70px;
+}

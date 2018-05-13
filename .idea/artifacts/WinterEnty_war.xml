@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WinterEnty:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SpringMvcDemo.war">
+      <element id="artifact" artifact-name="WinterEnty:war exploded" />
+    </root>
+  </artifact>
+</component>

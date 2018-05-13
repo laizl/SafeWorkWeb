@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!--指明 controller 所在包，并扫描其中的注解-->
+
+    <context:component-scan base-package="com.smart.controller"/>
+
+    <!-- 静态资源(js、image等)的访问 -->
+
+    <mvc:default-servlet-handler/>
+
+    <!-- 开启注解 -->
+    <mvc:annotation-driven />
+
+    <!--用于支持Servlet、JSP视图解析-->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/Pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- FreeMarker配置 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html; charset=utf-8"/>
+        <property name="cache" value="true"/>
+        <property name="suffix" value=".ftl"/>
+    </bean>
+    <bean id="freeMarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <!-- 模板的根目录 -->
+        <property name="templateLoaderPath" value="/WEB-INF/view/"/><!-- freemark模板存放的位置 -->
+        <!-- 编码格式  -->
+        <property name="defaultEncoding" value="utf-8"/><!-- freemark编码格式 -->
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">1</prop><!--刷新模板的周期，单位为秒 -->
+            </props>
+        </property>
+    </bean>
+</beans>
